@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Market Application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container displayFlex flexCol">
+      <header>
+        <h1 id="heading">Stock Market Analysis</h1>
+      </header>
+      <main id="mainCont">
+        <div id="stockChart_ListCont" class="displayFlex">
+          <section id="chartSec">
+            <h2 id="stockOnChart"></h2>
+            <div id="canvasCont">
+              <canvas id="stockChart"></canvas>
+            </div>
+            <div class="timeBtnCont displayFlex">
+              <div id="oneMon" class="timeBtn">1 Month</div>
+              <div id="threeMon" class="timeBtn">3 Months</div>
+              <div id="oneYr" class="timeBtn">1 Year</div>
+              <div id="fiveYr" class="timeBtn">5 Years</div>
+            </div>
+            <div id="minMaxValue" class="displayFlex">
+              <div id="minVal">Min:</div>
+              <div id="maxVal">Max:</div>
+            </div>
+          </section>
+          <section id="listSec" class="displayFlex flexCol"></section>
+        </div>
+        <section id="detailsSec">
+          <div id="stockHighligts" class="displayFlex">
+            <h3 id="stock_name"></h3>
+            <div class="displayFlex">
+              <h3 id="stock_bookValue"></h3>
+              <h3 id="stock_profit"></h3>
+            </div>
+          </div>
+          <div id="stockSummary"></div>
+        </section>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

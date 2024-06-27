@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+    --first-color: #27005D;
+    --second-color: #9400FF;
+    --third-color: #AED2FF;
+    --fourth-color: #E4F1FF;
+}
+.displayFlex {
+    display: flex;
+}
+.flexCol {
+    flex-direction: column;
+}
+/* header  */
+header {
+    margin: 1.5rem;
+}
+#heading {
+    text-align: center;
+    color: var(--fourth-color);
+}
+/* body */
+body {
+    background-color: var(--first-color);
+    display: flex;
+    justify-content: center;
+}
+.container {
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}
+/* main  */
+
+/* chart and list  */
+
+/* chart  */
+canvas {
+    width: 100%;
+    height: 100%
+}
+#stockOnChart {
+    color: var(--fourth-color);
+}
+#stockChart_ListCont {
+    gap: 1em;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+#chartSec {
+    flex: 3;
+    width: 100%;
+    height: 100%;
+    background-color: var(--second-color);
+    padding: 0.8em;
+    border-radius: 1rem;
+}
+.timeBtnCont {
+    justify-content: space-around;
+    margin: 1.5rem;
+}
+#minMaxValue {
+    justify-content: center;
+    gap: 0.5em;
+}
+#minVal, #maxVal {
+    color: var(--fourth-color);
+    display: inline-block;
+    padding: 0.2em;
+    /* border: 2px solid var(--fourth-color); */
+}
+
+
+/* stock list  */
+.stockCont {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+}
+.stockCont div {
+    padding: 0 0.2em;
+}
+#listSec {
+    flex: 1;
+    gap: 1rem;
+    background-color: var(--second-color);
+    padding: 0.8em;
+    border-radius: 1rem;
+}
+.stockName, .timeBtn  {
+    color: var(--first-color);
+    width: 4.8rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid var(--first-color);
+    border-radius: 0.2em;
+    background-color: var(--third-color);
+    transition: all ease-in 0.2s;
+}
+.stockName:hover, .timeBtn:hover  {
+    color: var(--third-color);
+    width: 4.8rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid var(--third-color);
+    border-radius: 0.2em;
+    background-color: var(--first-color);
+    transform: scale(1.1);
+}
+.stockBookValue, #stock_bookValue{
+    font-weight: bold;
+    color: var(--fourth-color);
+    text-align: center;
+}
+.stockProfit, #stock_profit {
+    color: rgb(10, 168, 10);
+    text-align: center;
+    font-weight: bold;
+}
+/* summary  */
+#stockHighligts {
+    gap: 1rem;
+    justify-content: space-between;
+}
+#stockHighligts div {
+    gap: 1rem;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+#stockHighligts #stock_name {
+    color: var(--fourth-color);
+}
+#detailsSec {
+    margin-bottom: 1.5rem;
+    background-color: var(--second-color);
+    padding: 0.8em;
+    border-radius: 1rem;
+}
+#stockSummary {
+    color: var(--fourth-color);
+    margin: 1rem 0;
+}
