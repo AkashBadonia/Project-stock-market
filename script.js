@@ -1,4 +1,4 @@
-import { createChart, getAllStockOnList, getStockSummaries, getChartsData } from "./allFunc.js";
+import { getAllStockOnList, getStockSummaries, getChartsData } from "./allFunc.js";
 export { listSecEl, stockProfitSum, stockSummaryEl, stockSummaryURL, stockChartURL, stockListURL };
 let activeStock;
 let stockChart;
@@ -41,7 +41,7 @@ async function getStockAnalysis() {
     );
     const firstStock1monValue = myStocksChartsObj[firstStock]["1mo"].value.map((curr) => curr.toFixed(2));
     stockOnChart.textContent = activeStock;
-    createChart(firstStock1monTimeStamp, firstStock1monValue, stockChart);
+    createChart(firstStock1monTimeStamp, firstStock1monValue);
     minValOfStock.textContent = `Minimum: ${Math.min(...firstStock1monValue.map((curr) => Number(curr)))}`;
     maxValOfStock.textContent = `Maximum: ${Math.max(...firstStock1monValue.map((curr) => Number(curr)))}`;
   })();
@@ -68,7 +68,7 @@ async function getStockAnalysis() {
       );
       const stock1monValue = myStocksChartsObj[btnTxtContent]["1mo"].value.map((curr) => curr.toFixed(2));
       stockChart.destroy();
-      createChart(stock1monTimeStamp, stock1monValue, stockChart);
+      createChart(stock1monTimeStamp, stock1monValue);
       minValOfStock.textContent = `Minimum: ${Math.min(...stock1monValue.map((curr) => Number(curr)))}`;
       maxValOfStock.textContent = `Maximum: ${Math.max(...stock1monValue.map((curr) => Number(curr)))}`;
     });
@@ -90,8 +90,49 @@ async function getStockAnalysis() {
       minValOfStock.textContent = `Minimum: ${Math.min(...stockValueArr.map((curr) => Number(curr)))}`;
       maxValOfStock.textContent = `Maximum: ${Math.max(...stockValueArr.map((curr) => Number(curr)))}`;
       stockChart.destroy();
-      createChart(stockTimeArr, stockValueArr, stockChart);
+      createChart(stockTimeArr, stockValueArr);
     });
   });
 }
 getStockAnalysis();
+
+// create chart from the data
+function createChart(timeArr, valueArr) {
+  const ctx = document.getElementById("stockChart").getContext("2d");
+  stockChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: [...timeArr],
+      datasets: [
+        {
+          label: "Stock Price",
+          data: [...valueArr],
+          backgroundColor: "#27005D",
+          color: "#27005D",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          ticks: {
+            color: "#E4F1FF",
+          },
+        },
+        y: {
+          ticks: {
+            color: "#E4F1FF",
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: "#E4F1FF",
+          },
+        },
+      },
+    },
+  });
+}

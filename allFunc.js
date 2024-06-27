@@ -1,44 +1,4 @@
 import { listSecEl, stockSummaryURL, stockChartURL, stockListURL } from "./script.js";
-// create chart from the data
-function createChart(timeArr, valueArr, stockChartRef) {
-  const ctx = document.getElementById("stockChart").getContext("2d");
-  stockChartRef = new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: [...timeArr],
-      datasets: [
-        {
-          label: "Stock Price",
-          data: [...valueArr],
-          backgroundColor: "#27005D",
-          color: "#27005D",
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      scales: {
-        x: {
-          ticks: {
-            color: "#E4F1FF",
-          },
-        },
-        y: {
-          ticks: {
-            color: "#E4F1FF",
-          },
-        },
-      },
-      plugins: {
-        legend: {
-          labels: {
-            color: "#E4F1FF",
-          },
-        },
-      },
-    },
-  });
-}
 
 // takes data from getAllStockOnlist function and adds all stocks to list in dom
 function createStockList(name, bookValue, profit) {
@@ -97,4 +57,4 @@ async function getChartsData() {
   return myStocksChartsListObj;
 }
 
-export { createChart, createStockList, getAllStockOnList, getStockSummaries, getChartsData };
+export { createStockList, getAllStockOnList, getStockSummaries, getChartsData };
